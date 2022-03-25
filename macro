@@ -1,0 +1,63 @@
+-- I cant code for my life, ignore everything wrong with this script
+-- I litterally barely fucking know lua leave me alone please
+-- It's just a simple walkspeed script for the game "Da hood"
+-- Can be used as a fake macro script.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print "Loaded"
+
+
+------------------------------------------------------------------
+    local plr = game:GetService('Players').LocalPlayer
+
+      function onButton1Down(mouse)
+       down = true
+        while down do
+      if not down then break end
+    local char = plr.Character
+    
+    char.HumanoidRootPart.Velocity = char.HumanoidRootPart.CFrame.lookVector * 250
+    wait()
+    end
+    end
+    
+    function onButton1Up(mouse)
+    down = false
+    end
+    
+    function onSelected(mouse)
+    mouse.KeyDown:connect(function(k) if k:lower()=="z"then onButton1Down(mouse)end end)
+    mouse.KeyUp:connect(function(k) if k:lower()=="z"then onButton1Up(mouse)end end)
+    end
+    
+    onSelected(game.Players.LocalPlayer:GetMouse())
+------------------------------------------------------------------
+local Button5 = Section6:CreateButton("WalkSpeed", function()
+local lp = game:GetService"Players".LocalPlayer
+local speed = Instance.new("IntValue",lp.Character.BodyEffects.Movement);speed.Name = "speed"
+local jump = Instance.new("IntValue",lp.Character.BodyEffects.Movement);jump.Name = "jump"
+
+	if bodyeffects_folder.Movement:findFirstChild("speed") then
+		walkspeed = 250
+		end
+		if bodyeffects_folder.Movement:findFirstChild("jump") then
+		jumppower = 25
+		end
+end)
+-------------------------------------------------------------------
